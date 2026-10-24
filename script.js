@@ -86,7 +86,7 @@ function renderChrome() {
     `<nav aria-label="Menu utama">${link("index.html", "home", "Beranda")}${link("produk.html", "produk", "Produk")}</nav>` +
     `<a class="cart" href="keranjang.html">Keranjang <span id="cart-count">0</span></a>`;
   $("#site-footer").innerHTML =
-    `<div><strong>Pojok Gadget</strong><p>Jl. Contoh No. 12, Bekasi, Jawa Barat</p></div>` +
+    `<div><strong>Rafa Gadget</strong><p>Jl. Contoh No. 12, Bekasi, Jawa Barat</p></div>` +
     `<div><p>WhatsApp: 0812-0000-0000</p><p>Email: halo@pojokgadget.example</p></div>` +
     `<p class="copy">© 2026 Pojok Gadget. Semua hak dilindungi.</p>`;
 }
