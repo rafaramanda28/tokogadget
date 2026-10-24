@@ -1,0 +1,491 @@
+/* Pojok Gadget, style.css versi 4 */
+/* Warna utama: ganti di sini untuk mengubah tema seluruh halaman */
+:root {
+  --ink: #141a22;
+  --paper: #eaeef3;
+  --cobalt: #2f4bd8;
+  --mint: #8fd6c0;
+  --amber: #f5b13d;
+  --rose: #f2a7b8;
+  --silver: #c9d0da;
+  --slate: #5b6b85;
+  --line: #c6cdd8;
+  --pad: clamp(1rem, 4vw, 3rem);
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+}
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Header */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 1.25rem var(--pad);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.topbar nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.topbar nav a { text-decoration: none; }
+.topbar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.cart {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+.cart span {
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--ink);
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+  padding: clamp(2rem, 6vw, 5rem) var(--pad);
+}
+.hero h1 {
+  max-width: 15ch;
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.hero p {
+  max-width: 46ch;
+  margin: 1.25rem 0 2rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  background: var(--cobalt);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover { background: #2239b3; }
+
+/* Perangkat di hero (digambar dengan CSS, tanpa gambar) */
+.hero-devices {
+  position: relative;
+  height: clamp(280px, 38vw, 420px);
+}
+.hd {
+  position: absolute;
+  background: var(--ink);
+}
+/* Ponsel */
+.d1 {
+  left: 4%;
+  bottom: 0;
+  width: 34%;
+  aspect-ratio: 9 / 18;
+  border: 8px solid var(--ink);
+  border-radius: 24px;
+  background: var(--cobalt);
+  transform: rotate(-6deg);
+}
+.d1::before {
+  content: "";
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  width: 32%;
+  height: 3.5%;
+  border-radius: 999px;
+  background: var(--ink);
+  transform: translateX(-50%);
+}
+/* Jam pintar */
+.d2 {
+  left: 40%;
+  bottom: 12%;
+  z-index: 1;
+  width: 26%;
+  aspect-ratio: 1 / 1.15;
+  border: 7px solid var(--ink);
+  border-radius: 28%;
+  background: var(--amber);
+  transform: rotate(3deg);
+}
+.d2::before,
+.d2::after {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  height: 42%;
+  background: var(--ink);
+}
+.d2::before { bottom: 100%; border-radius: 10px 10px 0 0; }
+.d2::after { top: 100%; border-radius: 0 0 10px 10px; }
+/* Case earbuds */
+.d3 {
+  right: 0;
+  bottom: 4%;
+  width: 30%;
+  aspect-ratio: 1.1 / 1;
+  border: 6px solid var(--ink);
+  border-radius: 38%;
+  background: var(--silver);
+  transform: rotate(8deg);
+}
+.d3::before {
+  content: "";
+  position: absolute;
+  inset: 40% 0 auto 0;
+  height: 4px;
+  background: var(--ink);
+}
+
+/* Panel produk */
+.shot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: var(--c);
+  overflow: hidden;
+}
+.shot span {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+.dev {
+  background: var(--ink);
+  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.16);
+}
+.tall  { width: 32%; aspect-ratio: 9 / 18; border-radius: 16px; }
+.round { width: 44%; aspect-ratio: 1; border-radius: 50%; }
+.wide  { width: 62%; aspect-ratio: 2 / 1; border-radius: 12px; }
+
+/* Katalog */
+.catalog { padding: 2rem var(--pad) 4rem; }
+.catalog h2 {
+  margin-bottom: 1.75rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem 1.5rem;
+}
+.product h3 {
+  margin-top: 0.9rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+.notes {
+  min-height: 3em;
+  font-size: 0.95rem;
+  color: #46514f;
+}
+.buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.price { font-size: 1.15rem; font-weight: 800; }
+.add {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.add:hover { background: var(--ink); color: var(--paper); }
+
+/* Layanan */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0 var(--pad);
+  padding: 1.5rem 0 4rem;
+  border-top: 2px solid var(--ink);
+}
+.services h3 { margin-bottom: 0.4rem; font-size: 1.15rem; font-weight: 800; }
+.services p { max-width: 38ch; font-size: 0.95rem; }
+
+/* Footer */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  padding: 2.5rem var(--pad);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.95rem;
+}
+.footer strong { font-size: 1.25rem; }
+.copy { width: 100%; opacity: 0.7; font-size: 0.85rem; }
+
+/* Layar kecil */
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .add, .cart { transition: background 0.15s, color 0.15s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ===== Multi halaman dan interaksi ===== */
+.topbar nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.page { padding: 2rem var(--pad) 4rem; }
+.page h1 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.section-head h2 { margin-bottom: 0; }
+.more { font-weight: 600; }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; margin-bottom: 1rem; }
+.toolbar input,
+.toolbar select,
+.summary input,
+.summary textarea {
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.toolbar input { flex: 1 1 220px; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+.chip {
+  padding: 0.4rem 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.count { margin-bottom: 1.5rem; font-size: 0.95rem; color: #46514f; }
+.empty { grid-column: 1 / -1; padding: 2rem 0; list-style: none; }
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+#items { padding: 0; list-style: none; border-top: 2px solid var(--ink); }
+.row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto auto auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.mini { width: 56px; aspect-ratio: 1; border-radius: 8px; background: var(--c); }
+.row-info { display: grid; }
+.row-info span { font-size: 0.9rem; color: #46514f; }
+.qty { display: flex; align-items: center; gap: 0.5rem; }
+.qty button {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.qty button:hover { background: var(--ink); color: var(--paper); }
+.hapus {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.summary { padding: 1.5rem; border: 2px solid var(--ink); border-radius: 12px; }
+.summary dl { display: grid; grid-template-columns: 1fr auto; gap: 0.4rem 1rem; margin-bottom: 1.5rem; }
+.summary dd { margin: 0; text-align: right; }
+.summary .tot { padding-top: 0.6rem; border-top: 1px solid var(--line); font-size: 1.2rem; font-weight: 800; }
+.summary label { display: grid; gap: 0.3rem; margin-bottom: 0.9rem; font-size: 0.95rem; font-weight: 600; }
+.summary input,
+.summary textarea { border-radius: 8px; font-weight: 400; }
+.summary .btn { width: 100%; border: 0; font: inherit; font-weight: 600; cursor: pointer; }
+.summary .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 20;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  transform: translate(-50%, 200%);
+}
+#toast.show { transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: no-preference) {
+  #toast { transition: transform 0.25s; }
+}
+@media (max-width: 760px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 56px 1fr auto; }
+  .row .sub { grid-column: 2; }
+}
+
+/* ===== Animasi ===== */
+@view-transition { navigation: auto; }
+:root { --ease: cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+.topbar { position: sticky; top: 0; z-index: 15; background: var(--paper); }
+.topbar nav a,
+.topbar nav a:hover,
+.topbar nav a[aria-current="page"] {
+  padding-bottom: 0.2rem;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+}
+.topbar nav a:hover,
+.topbar nav a[aria-current="page"] { background-size: 100% 2px; }
+
+.cart span { display: inline-block; }
+.cart span.pop { animation: pop 0.45s ease; }
+@keyframes pop { 40% { transform: scale(1.5); } }
+.dot {
+  position: fixed;
+  z-index: 30;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  border-radius: 50%;
+  background: var(--cobalt);
+  pointer-events: none;
+}
+.btn:active, .add:active { transform: scale(0.96); }
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes naik { from { opacity: 0; translate: 0 24px; } }
+  @keyframes masuk { from { opacity: 0; translate: 0 70px; } }
+  @keyframes melayang { 50% { translate: 0 -14px; } }
+  @keyframes kilau { 50% { background-position: 0 100%; } }
+
+  /* Pembuka halaman: teks naik bergantian, perangkat masuk lalu melayang pelan */
+  .hero-text > * { animation: naik 0.7s var(--ease) both; }
+  .hero-text > :nth-child(2) { animation-delay: 0.12s; }
+  .hero-text > :nth-child(3) { animation-delay: 0.24s; }
+  .page h1, .toolbar, .chips { animation: naik 0.6s var(--ease) both; }
+  .toolbar { animation-delay: 0.08s; }
+  .chips { animation-delay: 0.16s; }
+  .d1 {
+    background: linear-gradient(165deg, #2f4bd8 25%, #8da2ff 50%, #2f4bd8 75%) 0 0 / 100% 300%;
+    animation: masuk 0.9s var(--ease) 0.2s both, melayang 6s ease-in-out 1.1s infinite, kilau 6s ease-in-out infinite;
+  }
+  .d2 { animation: masuk 0.9s var(--ease) 0.35s both, melayang 5s ease-in-out 1.25s infinite; }
+  .d3 { animation: masuk 0.9s var(--ease) 0.5s both, melayang 7s ease-in-out 1.4s infinite; }
+
+  /* Interaksi */
+  .dev { transition: transform 0.4s var(--ease); }
+  .product:hover .dev { transform: translateY(-8px) rotate(-5deg) scale(1.06); }
+  .btn, .add, .cart { transition: background 0.15s, color 0.15s, transform 0.15s; }
+  .btn:hover { transform: translateY(-2px); }
+  #toast { transition: transform 0.35s var(--ease); }
+
+  /* Muncul saat di-scroll */
+  .reveal {
+    opacity: 0;
+    translate: 0 28px;
+    transition: opacity 0.6s ease, translate 0.6s var(--ease);
+    transition-delay: var(--d, 0s);
+  }
+  .reveal.in { opacity: 1; translate: 0 0; }
+  .row.keluar { opacity: 0; translate: 40px 0; transition: opacity 0.25s, translate 0.25s; transition-delay: 0s; }
+}
